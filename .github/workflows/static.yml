@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal Mine: Cerebrophaga neurotoxica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+   
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link.active {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+        .nav-link:not(.active):hover {
+            color: #3b82f6;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-slate-800 text-white text-center py-8 shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-bold">Alerta Patógeno</h1>
+        <p class="text-xl mt-2">Um mergulho interativo na ameaça da <span class="font-semibold text-amber-300">Cerebrophaga neurotoxica</span></p>
+    </header>
+
+    <nav class="sticky top-0 bg-white shadow-md z-10">
+        <div class="container mx-auto px-4">
+            <ul class="flex justify-center items-center space-x-2 md:space-x-8 py-3 overflow-x-auto">
+                <li><a href="#ameaca" data-section="ameaca" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">A Ameaça</a></li>
+                <li><a href="#transmissao" data-section="transmissao" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Transmissão</a></li>
+                <li><a href="#sintomas" data-section="sintomas" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Sintomas e Riscos</a></li>
+                <li><a href="#prevencao" data-section="prevencao" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Prevenção e Tratamento</a></li>
+                <li><a href="#artigos_contexto" data-section="artigos_contexto" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Artigos e Contexto</a></li>
+                <li><a href="#resistencia" data-section="resistencia" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Resistência a Antibióticos</a></li>
+                <li><a href="#comparativo" data-section="comparativo" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Comparativo</a></li>
+                <li><a href="#curiosidades" data-section="curiosidades" class="nav-link text-sm md:text-base font-semibold py-2 border-b-2 border-transparent">Curiosidades</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--mata-->
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="ameaca" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4  text-center">A Ameaça: Devorador de mentes</h2>
+            <p class="mb-8 text-lg text-slate-600">Esta seção detalha as características biológicas da Cerebrophaga neurotoxica, um patógeno emergente com um perigoso mecanismo de ação. Compreender sua identidade, como se replica e como ataca o corpo humano é o primeiro passo para nos protegermos.</p>
+            <!--explicação da bacteria-->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="font-bold text-xl mb-2 text-blue-800">Classificação</h3>
+                    <p><strong>Nome:</strong> Cerebrophaga neurotoxica</p>
+                    <p><strong>Tipo:</strong> Bactéria Gram-positiva</p>
+                    <p><strong>Forma:</strong> Bacilo (bastonete)</p>
+                    <p><strong>Família:</strong> Cerebrophagaceae </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="font-bold text-xl mb-2 text-blue-800">Replicação</h3>
+                    <p>Reproduz-se por <strong>fissão binária</strong>, com capacidade de duplicação a cada 20 minutos em condições ideais, levando a um crescimento exponencial.</p>
+                    <p class="mt-2">Pode adquirir resistência a antibióticos via transferência horizontal de genes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h3 class="font-bold text-xl mb-2 text-blue-800">Características Notáveis</h3>
+                    <p>Forma <strong>biofilmes</strong>, que a protegem do sistema imune e de medicamentos. Cresce em temperaturas de refrigeração, tornando-se uma ameaça persistente em alimentos.</p>
+                </div>
+            </div>
+            <!--card de como invadi-->
+            <h3 class="text-2xl font-bold text-slate-800 mb-4 ">Mecanismo de Ação: A Invasão do Cérebro</h3>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                <div class="p-4 bg-white rounded-lg shadow-md w-full md:w-1/4">
+                    <span class="text-4xl">🍽️</span>
+                    <h4 class="font-bold mt-2">1. Ingestão</h4>
+                    <p>A bactéria entra no corpo através de alimentos contaminados.</p>
+                </div>
+                <div class="text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                <div class="p-4 bg-white rounded-lg shadow-md w-full md:w-1/4">
+                    <span class="text-4xl">🩸</span>
+                    <h4 class="font-bold mt-2">2. Invasão</h4>
+                    <p>Atravessa a barreira intestinal e entra na corrente sanguínea.</p>
+                </div>
+                <div class="text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                <div class="p-4 bg-white rounded-lg shadow-md w-full md:w-1/4">
+                    <span class="text-4xl">🧠</span>
+                    <h4 class="font-bold mt-2">3. Ataque ao SNC</h4>
+                    <p>Cruza a barreira hematoencefálica e infecta o cérebro.</p>
+                </div>
+                <div class="text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                <div class="p-4 bg-red-100 border-l-4 border-red-500 rounded-lg shadow-md w-full md:w-1/4">
+                    <span class="text-4xl">☠️</span>
+                    <h4 class="font-bold mt-2 text-red-800">4. Dano Cerebral</h4>
+                    <p class="text-red-700">Libera toxinas que causam inflamação severa e sintomas neurológicos.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Transmissão-->
+        <section id="transmissao" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4 text-center">Rotas de Transmissão</h2>
+            <p class="mb-8 text-lg text-slate-600">A principal via de transmissão da Cerebrophaga neurotoxica é alimentar. Diferente de patógenos respiratórios, a ameaça aqui está no que comemos. Esta seção ilustra a jornada da bactéria do ambiente até o nosso prato e destaca os alimentos de maior risco.</p>
+            <!--explicação de como ele transmite-->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A Jornada da Contaminação</h3>
+                <div class="flex flex-col md:flex-row items-stretch justify-between space-y-4 md:space-y-0 md:space-x-4 text-center">
+                    <div class="flex-1 p-4 bg-slate-100 rounded-lg flex flex-col justify-center items-center">
+                        <span class="text-4xl">🏞️</span>
+                        <h4 class="font-bold mt-2">Reservatório Natural</h4>
+                        <p>Solo, água e animais atuam como o lar inicial da bactéria.</p>
+                    </div>
+                    <div class="self-center text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                    <div class="flex-1 p-4 bg-slate-100 rounded-lg flex flex-col justify-center items-center">
+                        <span class="text-4xl">🚜</span>
+                        <h4 class="font-bold mt-2">Produção de Alimentos</h4>
+                        <p>Contamina vegetais e animais durante a produção agrícola.</p>
+                    </div>
+                    <div class="self-center text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                    <div class="flex-1 p-4 bg-amber-100 rounded-lg flex flex-col justify-center items-center border-l-4 border-amber-500">
+                        <span class="text-4xl">🧊</span>
+                        <h4 class="font-bold mt-2 text-amber-800">Processamento e Estoque</h4>
+                        <p class="text-amber-700">Ponto crítico: a bactéria se multiplica mesmo sob refrigeração.</p>
+                    </div>
+                    <div class="self-center text-2xl font-bold text-slate-400 transform rotate-90 md:rotate-0">→</div>
+                    <div class="flex-1 p-4 bg-red-100 rounded-lg flex flex-col justify-center items-center border-l-4 border-red-500">
+                        <span class="text-4xl">🛒</span>
+                        <h4 class="font-bold mt-2 text-red-800">Consumo</h4>
+                        <p class="text-red-700">Alimentos de alto risco chegam ao consumidor.</p>
+                    </div>
+                </div>
+                <!--os alimentos que ele contamina -->
+            <div class="mt-8">
+                    <h4 class="font-bold text-xl text-slate-800 mb-2">Alimentos de Alto Risco:</h4>
+                    <ul class="list-disc list-inside grid grid-cols-1 md:grid-cols-2 gap-2 ml-14">
+                        <li>Leite não pasteurizado e laticínios</li>
+                        <li>Queijos macios (ex: feta, brie)</li>
+                        <li>Carnes frias e embutidos</li>
+                        <li>Frutos do mar defumados</li>
+                        <li>Brotos crus</li>
+                        <li>Vegetais mal lavados</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Sintomas -->
+        <section id="sintomas" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Sintomas e Grupos de Risco</h2>
+            <p class="mb-8 text-lg text-slate-600">A infecção evolui rapidamente de sintomas genéricos para um quadro neurológico grave. Reconhecer os sinais e saber quem está mais vulnerável é crucial para uma ação rápida. Esta seção detalha os sintomas e quantifica o risco para diferentes grupos da população.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Progressão dos Sintomas</h3>
+                    <ul class="space-y-3">
+                        <li class="p-4 bg-white rounded-lg shadow-sm"><strong>Iniciais (inespecíficos):</strong> Febre, mal-estar, dores no corpo.</li>
+                        <li class="p-4 bg-amber-100 rounded-lg shadow-sm border-l-4 border-amber-500"><strong>Alerta (meningite):</strong> Dor de cabeça intensa, febre alta, rigidez na nuca.</li>
+                        <li class="p-4 bg-red-100 rounded-lg shadow-sm border-l-4 border-red-500"><strong>Graves (neurológicos):</strong> Confusão mental, delírios, convulsões, alucinações.</li>
+                        <li class="p-4 bg-slate-800 text-white rounded-lg shadow-sm"><strong>Críticos:</strong> Coma e risco de morte em menos de 24h após sintomas graves.</li>
+                    </ul>
+                </div>
+                <div>
+                    <!--FC grafico d-->
+                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Grupos Mais Vulneráveis</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="mb-4">O risco de desenvolver a forma grave da doença é significativamente maior em certos grupos. O gráfico abaixo ilustra essa disparidade.</p>
+                        <div class="chart-container">
+                            <canvas id="vulnerabilityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prevencao" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Prevenção e Tratamento</h2>
+            <p class="mb-8 text-lg text-slate-600">A luta contra a Cerebrophaga neurotoxica acontece em duas frentes: a prevenção, focada na segurança alimentar para evitar a infecção, e o tratamento, que depende de diagnóstico rápido e uso correto de antibióticos. Explore as estratégias em cada área.</p>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="border-b border-slate-200 mb-4">
+                    <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                        <button id="btn-prev" class="tab-btn active text-blue-600 border-blue-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">
+                            🛡️ Prevenção
+                        </button>
+                        <button id="btn-treat" class="tab-btn text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">
+                            💊 Tratamento
+                        </button>
+                    </nav>
+                </div>
+
+                <div id="content-prev" class="tab-content">
+                    <h3 class="font-bold text-xl mb-4">Medidas de Segurança Alimentar</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start"><span class="mr-3 text-xl text-blue-600">🧼</span> <span><strong>Higiene Rigorosa:</strong> Lave as mãos, utensílios e superfícies com frequência.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl text-blue-600">🔥</span> <span><strong>Cozimento Completo:</strong> Cozinhe carnes e ovos a temperaturas seguras.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl text-blue-600">🥬</span> <span><strong>Lavar Vegetais:</strong> Lave bem frutas e vegetais, mesmo que vá descascá-los.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl text-blue-600">↔️</span> <span><strong>Evitar Contaminação Cruzada:</strong> Separe alimentos crus de cozidos.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl text-red-600">⚠️</span> <span><strong>Atenção Especial:</strong> Grupos de risco devem evitar alimentos de alto risco como queijos macios e carnes frias.</span></li>
+                    </ul>
+                </div>
+
+                <div id="content-treat" class="tab-content" style="display: none;">
+                    <h3 class="font-bold text-xl mb-4 texte-center ">Protocolo Terapêutico</h3> 
+                    <p class="mb-4">O tratamento é uma emergência médica e deve ser feito em ambiente hospitalar.</p>
+                    <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-md mb-4" role="alert">
+                        <p class="font-bold">Tratamento de Primeira Linha:</p>
+                        <p>Combinação de <strong>Ampicilina + Gentamicina</strong>, administrada intravenosamente.</p>
+                    </div>
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
+                        <p class="font-bold">Limitação Importante:</p>
+                        <p>A bactéria é naturalmente <strong>resistente às Cefalosporinas</strong>, uma classe comum de antibióticos para meningite. O diagnóstico preciso é vital para não usar um tratamento ineficaz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artigos_contexto" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Artigos Científicos e Contexto</h2>
+            <p class="mb-8 text-lg text-slate-600">Esta seção oferece uma perspectiva mais ampla sobre a emergência de patógenos, a importância da ciência na saúde pública, como combater a desinformação, a origem provável da bactéria e as referências científicas que embasam este jornal.</p>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Editorial: O Desafio da Ciência no Combate a Doenças Emergentes</h3>
+                <p class="mb-4 text-slate-600">A era moderna, marcada pela globalização e pela rápida interconectividade, trouxe consigo um desafio sem precedentes para a saúde pública: a emergência de novos patógenos e a reemergência de doenças antes controladas. Nesse cenário dinâmico, o papel da ciência transcende o laboratório, estendendo-se à linha de frente da comunicação e da educação. É imperativo que informações precisas e baseadas em evidências alcancem o público, capacitando-o a tomar decisões informadas e a agir de forma responsável.</p>
+                <p class="mb-4 text-slate-600">Atualmente, a sociedade enfrenta uma "infodemia", um volume excessivo de informações, muitas das quais são falsas ou enganosas, que ameaçam a segurança e a saúde dos cidadãos. Essa sobrecarga de desinformação, evidenciada durante crises de saúde globais, pode gerar incertezas e insegurança na população, influenciando negativamente comportamentos de saúde, como a adesão à vacinação. O combate à desinformação não é apenas uma tarefa de jornalistas, mas uma responsabilidade coletiva que exige vigilância, verificação de fontes e a promoção da literacia em saúde.</p>
+                <p class="text-slate-600">Este jornal científico fictício, centrado na descoberta de um novo patógeno, a Cerebrophaga neurotoxica, tem como objetivo informar, educar e conscientizar o público. Ao unir rigor científico com linguagem acessível e responsabilidade social, busca-se empoderar os leitores com conhecimento confiável, essencial para enfrentar as ameaças à saúde coletiva. A compreensão dos mecanismos de uma doença emergente e das estratégias para sua prevenção e tratamento é a nossa melhor defesa contra a propagação do medo e da ignorância.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Relato da Descoberta e Entrevista Fictícia com a Dra. Ana Clara Ribeiro</h3>
+                <p class="mb-4 text-slate-600">A primeira identificação da Cerebrophaga neurotoxica e do médico que a diagnosticou são elementos fictícios, criados para este cenário, uma vez que os materiais de pesquisa não fornecem esses detalhes. A narrativa de sua descoberta, contudo, é construída para refletir a complexidade e os desafios reais da vigilância epidemiológica e do diagnóstico de patógenos emergentes.</p>
+                <p class="mb-4 text-slate-600">O alarme sobre a Cerebrophaga neurotoxica foi soado em fevereiro de 2025, na cidade de Santa Inês, Bahia. A médica pioneira neste diagnóstico foi a Dra. Ana Clara Ribeiro, uma infectologista e neurologista de renome, com vasta experiência em doenças tropicais e emergentes. Trabalhando no Hospital Municipal de Santa Inês, a Dra. Ribeiro é reconhecida por sua perspicácia clínica e dedicação à saúde pública.</p>
+                <p class="mb-4 text-slate-600">Ela começou a observar uma série de casos atípicos em pacientes que apresentavam sintomas neurológicos severos e de progressão alarmantemente rápida. Inicialmente, os quadros eram confundidos com meningite bacteriana comum, encefalite viral ou intoxicações alimentares graves, mas não respondiam aos tratamentos convencionais.</p>
+                <p class="mb-4 text-slate-600">A persistência da Dra. Ribeiro em investigar a causa incomum desses pacientes, que incluíam desde crianças a idosos, levou à coleta minuciosa de amostras de líquor e sangue. Esses materiais, após resultados inconclusivos em testes rotineiros locais, foram enviados com urgência para laboratórios de referência em Salvador e, posteriormente, para centros de pesquisa avançados. Foi nesses laboratórios especializados que a nova espécie bacteriana foi isolada e identificada, confirmando as suspeitas da Dra. Ribeiro de que se tratava de algo inédito.</p>
+                <p class="mb-4 text-slate-600">Dra. Ribeiro, qual a maior lição que podemos tirar da emergência da Cerebrophaga neurotoxica?</p>
+                <p class="italic mb-4 text-slate-600">"A maior lição é a importância da vigilância constante e da colaboração. Patógenos emergentes não respeitam fronteiras geográficas ou disciplinares. A detecção precoce depende de profissionais de saúde na linha de frente que estejam atentos a padrões incomuns, e a resposta eficaz exige que cientistas, médicos, autoridades de saúde e a população trabalhem juntos. A desinformação é um vírus à parte, e combatê-la com ciência clara e acessível é tão vital quanto desenvolver novos tratamentos."</p>
+                <p class="text-slate-600">A história da Dra. Ribeiro ilustra o papel crítico da acuidade clínica e da vigilância local na detecção de patógenos emergentes. Profissionais de saúde da linha de frente, como a Dra. Ribeiro, atuam como a primeira barreira de defesa. A necessidade de sistemas robustos de vigilância local, especialmente em áreas rurais ou agrícolas que podem ser pontos de "spillover" zoonótico, é fundamental. Isso demonstra que a saúde pública é uma rede complexa onde a observação clínica atenta é tão vital quanto a pesquisa de ponta.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A Origem da Ameaça: De Onde Veio a Cerebrophaga neurotoxica?</h3>
+                <p class="mb-4 text-slate-600">A emergência da Cerebrophaga neurotoxica na população humana levanta questões cruciais sobre sua origem. Como um patógeno emergente, é altamente provável que sua fonte inicial esteja ligada a reservatórios naturais, especialmente animais ou ambientes. Estatísticas globais indicam que uma parcela significativa dos patógenos humanos, incluindo 75% das doenças infecciosas emergentes, tem origem animal.</p>
+                <p class="mb-4 text-slate-600">A Cerebrophaga neurotoxica pode ter residido inicialmente em um reservatório animal, como gado ou aves, ou em ambientes como solo e água, onde bactérias patogênicas como a Listeria monocytogenes são comumente encontradas. Biofilmes em superfícies também podem atuar como reservatórios naturais, dificultando a erradicação da bactéria.</p>
+                <p class="mb-4 text-slate-600">A introdução na espécie humana pode ter ocorrido através de um "spillover" zoonótico, um evento em que o patógeno salta de uma espécie animal para os humanos. Isso pode ser facilitado por mudanças nas interações entre humanos e animais, práticas agrícolas intensivas ou falhas nos processos de segurança alimentar. Por exemplo, a contaminação de vegetais pelo solo ou a presença da bactéria em animais de criação pode levar à sua entrada na cadeia alimentar humana.</p>
+                <p class="text-slate-600">Nesse cenário, hospedeiros intermediários desempenham um papel fundamental. Animais de criação, como bovinos ou aves, podem atuar como portadores assintomáticos, transmitindo a bactéria para produtos de consumo humano, como carne ou laticínios. Vegetais contaminados por solo ou água também podem servir como veículos de transmissão. A capacidade da Cerebrophaga neurotoxica de sobreviver e se multiplicar em condições adversas, como temperaturas de refrigeração, amplifica o risco de contaminação e disseminação através de alimentos processados. Essa complexa interação entre saúde humana, animal e ambiental, conhecida como conceito de "Saúde Única" (One Health), é crucial para compreender e prevenir futuras emergências de patógenos.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Saberes Populares e Tradicionais no Enfrentamento de Doenças</h3>
+                <p class="mb-4 text-lg text-slate-600">Além da ciência biomédica, é fundamental reconhecer e valorizar a diversidade de saberes e práticas que comunidades tradicionais, como povos indígenas e quilombolas, desenvolveram ao longo de gerações para compreender e enfrentar doenças em seus territórios. Esses conhecimentos, muitas vezes transmitidos oralmente, representam um patrimônio cultural e um recurso valioso para a saúde pública.</p>
+                <p class="mb-4 text-lg text-slate-600">A investigação de como essas comunidades percebem a saúde e a doença, suas abordagens preventivas, o uso de plantas medicinais, rituais de cura e sistemas de cuidado comunitário, pode oferecer insights complementares e enriquecer nossa compreensão sobre a interação entre o ser humano, o ambiente e os patógenos. A valorização desses saberes não implica em substituir a medicina científica, mas sim em promover um diálogo respeitoso e uma integração de abordagens que reconheçam a complexidade da saúde e do bem-estar em diferentes contextos culturais.</p>
+                <p class="text-lg text-slate-600">A "Saúde Única" se beneficia imensamente dessa perspectiva ampliada, pois a saúde de uma comunidade está intrinsecamente ligada ao seu ambiente e à sua cultura. Compreender as práticas tradicionais pode, por exemplo, revelar métodos de manejo de recursos naturais que minimizam a exposição a patógenos ou identificar plantas com propriedades antimicrobianas que merecem investigação científica. Ao envolver essas comunidades no diálogo sobre saúde, podemos construir estratégias de prevenção e controle mais eficazes e culturalmente sensíveis.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Fato ou Fake? Desmistificando a Desinformação</h3>
+                <p class="mb-8 text-lg text-slate-600">Em crises de saúde, a desinformação pode ser tão perigosa quanto o próprio patógeno. É crucial separar os fatos da ficção. Aqui, abordamos alguns mitos comuns e apresentamos a verdade baseada na ciência.</p>
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="font-bold text-red-600 text-xl">FAKE: "A bactéria foi criada em laboratório."</p>
+                        <p class="mt-2 text-green-700 font-semibold"><span class="font-bold">FATO:</span> Não há nenhuma evidência científica que apoie a ideia de que a Cerebrophaga neurotoxica ou qualquer outro patógeno emergente tenha sido criado em laboratório. A maioria dos patógenos emergentes, incluindo 75% das doenças infecciosas humanas emergentes, tem origem animal e resulta de interações complexas entre humanos, animais e o meio ambiente. A Cerebrophaga neurotoxica provavelmente surgiu de um reservatório natural, como solo ou animais, e foi introduzida na população humana através da cadeia alimentar, como observado em outros patógenos de origem alimentar.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="font-bold text-red-600 text-xl">FAKE: "Comer carne cozida ou laticínios pasteurizados protege totalmente contra a Cerebrophaga neurotoxica."</p>
+                        <p class="mt-2 text-green-700 font-semibold"><span class="font-bold">FATO:</span> Embora o cozimento adequado e a pasteurização matem a Cerebrophaga neurotoxica, a contaminação pode ocorrer após esses processos. A bactéria tem a capacidade de crescer em temperaturas de refrigeração e pode contaminar alimentos prontos para consumo, como carnes frias, queijos macios ou brotos crus, se não forem manuseados corretamente. A prevenção exige higiene rigorosa em todas as etapas, desde a produção até o consumo, e evitar a contaminação cruzada.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="font-bold text-red-600 text-xl">FAKE: "Chás de ervas ou remédios caseiros curam a infecção por Cerebrophaga neurotoxica."</p>
+                        <p class="mt-2 text-green-700 font-semibold"><span class="font-bold">FATO:</span> A infecção por Cerebrophaga neurotoxica é uma emergência médica grave que exige tratamento imediato com antibióticos específicos em ambiente hospitalar. Remédios caseiros ou chás de ervas não possuem eficácia comprovada contra infecções bacterianas graves e podem atrasar o tratamento médico necessário, com consequências fatais. A confiança em informações não científicas pode levar a resultados trágicos, como o ressurgimento de doenças erradicadas devido à desconfiança em tratamentos comprovados, como as vacinas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <p class="font-bold text-red-600 text-xl">FAKE: "Se eu me sentir melhor, posso parar de tomar o antibiótico."</p>
+                        <p class="mt-2 text-green-700 font-semibold"><span class="font-bold">FATO:</span> Interromper o tratamento prematuramente permite que as bactérias mais resistentes sobrevivam e se multipliquem, podendo causar uma recaída da doença e contribuir para a resistência a antibióticos. Siga sempre a prescrição médica até o fim.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Classificados: Chamada para a Ciência</h3>
+                <p class="mb-4 text-lg text-slate-600">Em um esforço contínuo para combater a Cerebrophaga neurotoxica e outras ameaças emergentes, a comunidade científica e de saúde pública busca o apoio da população. Sua participação é vital para avançarmos na pesquisa e no desenvolvimento de novas soluções.</p>
+                <div class="border border-slate-300 rounded-lg p-4 bg-slate-50">
+                    <p class="font-bold text-lg text-slate-800 mb-2">PROCURA-SE VOLUNTÁRIOS!</p>
+                    <p class="text-slate-700">A pesquisa médica avança com a dedicação de voluntários. Se você tem interesse em contribuir para o desenvolvimento de:</p>
+                    <ul class="list-disc list-inside ml-4 mt-2 text-slate-700">
+                        <li>Novas vacinas contra patógenos emergentes</li>
+                        <li>Tratamentos inovadores para doenças infecciosas</li>
+                        <li>Estudos sobre a resposta imunológica a infecções</li>
+                    </ul>
+                    <p class="mt-4 text-slate-700">Sua participação pode fazer a diferença na saúde global. Para mais informações sobre como se tornar um voluntário em estudos clínicos, entre em contato com o Centro de Pesquisa em Doenças Infecciosas através do e-mail: <span class="font-semibold text-blue-600">voluntarios.pesquisa@saude.org.br</span> ou ligue para <span class="font-semibold text-blue-600">(XX) XXXX-XXXX</span>. Sua saúde e segurança são nossa prioridade. Todos os estudos são aprovados por comitês de ética.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Referências Científicas</h3>
+                <p class="mb-4 text-lg text-slate-600">Este jornal foi construído com base em princípios científicos e informações de fontes confiáveis na área da saúde e biologia. Abaixo, as referências que embasam o conteúdo apresentado.</p>
+                <ol class="list-decimal list-inside space-y-2 text-slate-600">
+                    <li>World Health Organization. Infodemic. Disponível em: https://www.who.int/health-topics/infodemic. Acesso em: 28 jul. 2025.</li>
+                    <li>Organização Pan-Americana da Saúde (OPAS). Combate à desinformação em saúde. Disponível em: https://www.paho.org/pt/topicos/combate-desinformacao-saude. Acesso em: 28 jul. 2025.</li>
+                    <li>International Code of Nomenclature of Prokaryotes (ICNP). Disponível em: https://www.ncbi.nlm.nih.gov/books/NBK8083/. Acesso em: 28 jul. 2025.</li>
+                    <li>Parker, J. M. (2015). <span class="italic">Biological Nomenclature</span>. Cambridge University Press.</li>
+                    <li>Vázquez-Boland, J. A., et al. (2001). <span class="italic">Listeria monocytogenes</span>: a unique pathogen. <span class="italic">International Journal of Medical Microbiology</span>, 291(5-6), 457-465.</li>
+                    <li>Liu, D. (2015). <span class="italic">Molecular Detection of Foodborne Pathogens</span>. CRC Press.</li>
+                    <li>Madigan, M. T., et al. (2018). <span class="italic">Brock Biology of Microorganisms</span>. Pearson.</li>
+                    <li>Snyder, L., et al. (2013). <span class="italic">Molecular Genetics of Bacteria</span>. ASM Press.</li>
+                    <li>Tortora, G. J., et al. (2016). <span class="italic">Microbiology: An Introduction</span>. Pearson.</li>
+                    <li>Prescott, L. M., et al. (2002). <span class="italic">Microbiology</span>. McGraw-Hill.</li>
+                    <li>Davies, J., & Davies, D. (2010). Origins and evolution of antibiotic resistance. <span class="italic">Microbiology and Molecular Biology Reviews</span>, 74(3), 417-433.</li>
+                    <li>Mitchell, A. M., & Spratt, B. G. (2005). Nucleotide sequences of the penicillin-binding protein genes of <span class="italic">Streptococcus pneumoniae</span> and their relationship to penicillin resistance. <span class="italic">Journal of Bacteriology</span>, 177(12), 3522-3530.</li>
+                    <li>Donlan, R. M., & Costerton, J. W. (2002). Biofilms: survival mechanisms of clinically relevant microorganisms. <span class="italic">Clinical Microbiology Reviews</span>, 15(2), 167-193.</li>
+                    <li>European Food Safety Authority (EFSA) and European Centre for Disease Prevention and Control (ECDC). (2018). The European Union One Health 2017 Zoonoses Report. <span class="italic">EFSA Journal</span>, 16(12), 5500.</li>
+                    
+                </ol>
+            </div>
+        </section>
+
+        <section id="resistencia" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Resistência a Antibióticos: Cautela e Responsabilidade</h2>
+            <p class="mb-8 text-lg text-slate-600">A resistência bacteriana é uma ameaça global à saúde. Compreender como as bactérias se tornam resistentes e a importância do uso racional de antibióticos é fundamental para preservar a eficácia desses medicamentos vitais.</p>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Mecanismos de Resistência Bacteriana e Suas Consequências</h3>
+                <p class="mb-4 text-slate-600">A resistência bacteriana aos antibióticos ocorre quando as bactérias desenvolvem mecanismos para sobreviver à ação dos medicamentos que antes as eliminavam ou inibiam seu crescimento. Esse fenômeno é uma evolução natural, mas é dramaticamente acelerado pelo uso inadequado de antimicrobianos.</p>
+                <p class="mb-4 text-slate-600">Os principais mecanismos pelos quais as bactérias adquirem resistência são diversos e complexos:</p>
+                <ul class="list-disc list-inside space-y-2 mb-6 text-slate-600">
+                    <li><strong>Inativação Enzimática:</strong> Bactérias produzem enzimas que modificam ou degradam o antibiótico, tornando-o inativo.</li>
+                    <li><strong>Alteração do Sítio de Ligação:</strong> A estrutura do alvo do antibiótico dentro da célula bacteriana é modificada, impedindo ou reduzindo sua ligação.</li>
+                    <li><strong>Bombas de Efluxo:</strong> As bactérias ativam proteínas especializadas em suas membranas que bombeiam ativamente o antibiótico para fora da célula, reduzindo sua concentração interna a níveis não letais.</li>
+                    <li><strong>Alteração do Sistema de Transporte:</strong> A bactéria pode modificar suas vias de entrada, impedindo ou dificultando a absorção do antibiótico para dentro da célula.</li>
+                </ul>
+                <p class="mb-4 text-slate-600">Além desses mecanismos intrínsecos, as bactérias podem adquirir genes de resistência de outras bactérias através da <strong>transferência horizontal de genes</strong>. Processos como conjugação (transferência de plasmídeos), transformação (captação de DNA livre do ambiente) e transdução (transferência via vírus bacterianos) permitem que a resistência se dissemine rapidamente entre diferentes espécies bacterianas, acelerando a emergência de "superbactérias".</p>
+                <p class="text-slate-600">As consequências da resistência bacteriana são severas: os medicamentos se tornam ineficazes, as infecções persistem, e o risco de propagação para outras pessoas aumenta. Isso leva a falhas no tratamento, aumento das taxas de morbidade e mortalidade, prolongamento do tempo de internação hospitalar e custos de saúde mais elevados.</p>
+
+                <h4 class="font-bold text-xl mb-3 text-slate-800">Tabela: Mecanismos de Resistência a Antibióticos</h4>
+                <div class="overflow-x-auto rounded-lg shadow">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-slate-100">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mecanismo</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exemplo Comum</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Inativação Enzimática</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Bactérias produzem enzimas que degradam ou modificam o antibiótico, tornando-o inativo.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Beta-lactamases (inativam penicilinas e cefalosporinas)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Alteração do Sítio de Ligação</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">A estrutura do alvo do antibiótico dentro da célula bacteriana é modificada, impedindo ou reduzindo sua ligação.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Alteração de Proteínas de Ligação à Penicilina (PBPs) no Streptococcus pneumoniae</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bombas de Efluxo</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Proteínas na membrana bacteriana bombeiam ativamente o antibiótico para fora da célula, reduzindo sua concentração interna.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Bombas de efluxo para tetraciclinas ou fluoroquinolonas</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Alteração do Sistema de Transporte</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">A bactéria modifica ou impede a entrada do antibiótico na célula.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Redução da permeabilidade da membrana externa em bactérias Gram-negativas</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Transferência Horizontal de Genes</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Bactérias adquirem genes de resistência de outras bactérias (conjugação, transformação, transdução), acelerando a disseminação.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Disseminação de genes de resistência a carbapenêmicos (KPC)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A Automedicação: Uma Ameaça Global à Saúde</h3>
+                <p class="mb-4 text-lg text-slate-600">A automedicação, embora pareça uma solução rápida para sintomas menores, representa uma ameaça séria e crescente à saúde global, especialmente no contexto da resistência a antibióticos. Conversamos com a Dra. Sofia Mendes, infectologista e especialista em saúde pública, para entender melhor os riscos.</p>
+                <p class="mb-4 text-slate-600">Dra. Sofia, por que a automedicação é tão perigosa, especialmente com antibióticos?</p>
+                <p class="italic mb-4 text-slate-600">"A automedicação com antibióticos é extremamente preocupante porque, na maioria das vezes, as pessoas não sabem se a infecção é realmente bacteriana ou viral. Se for viral, o antibiótico não terá efeito e, pior, estará contribuindo para a resistência bacteriana. Além disso, a dose e a duração do tratamento são cruciais. Interromper o uso antes do tempo ou usar doses incorretas não elimina todas as bactérias, mas seleciona as mais fortes, tornando-as resistentes. Isso cria 'superbactérias' que são muito difíceis de tratar, e essa resistência se espalha, afetando a todos."</p>
+                <p class="mb-4 text-slate-600">Quais são os impactos a longo prazo da automedicação na saúde pública?</p>
+                <p class="italic mb-4 text-slate-600">"Os impactos são devastadores. Estamos perdendo a eficácia de antibióticos que antes eram milagrosos. Isso significa que infecções comuns, como uma pneumonia ou uma infecção urinária, podem se tornar intratáveis. Cirurgias rotineiras e tratamentos de câncer, que dependem de antibióticos para prevenir infecções, se tornam muito mais arriscados. A resistência a antibióticos é uma crise silenciosa, mas tão grave quanto uma pandemia. É um problema global que exige a colaboração de todos: pacientes, médicos, farmacêuticos e governos."</p>
+                <p class="text-lg text-slate-600">A mensagem da Dra. Mendes é clara: a automedicação compromete não apenas a saúde individual, mas a capacidade da sociedade de combater infecções no futuro. A consulta a um profissional de saúde é indispensável para um diagnóstico correto e um tratamento seguro e eficaz.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">A Importância do Uso Racional e os Riscos do Uso Indiscriminado</h3>
+                <p class="mb-4 text-slate-600">O uso racional de antibióticos é a principal estratégia para combater a resistência bacteriana e preservar a eficácia desses medicamentos vitais. O uso indiscriminado, por outro lado, acarreta riscos graves tanto para o indivíduo quanto para a saúde pública.</p>
+                <p class="mb-4 text-slate-600">As principais causas do uso inadequado incluem a automedicação, a utilização de antibióticos não específicos para a infecção em questão, a administração de doses inadequadas e, crucialmente, a interrupção prematura do tratamento. Essas práticas selecionam as bactérias mais resistentes, permitindo que proliferem e transmitam seus genes de resistência para outras gerações, acelerando o surgimento de "superbactérias" que são resistentes a múltiplos medicamentos e para as quais as opções de tratamento são limitadas.</p>
+                <p class="mb-4 text-slate-600">Além de tornar o tratamento de infecções mais difícil e prolongado, o uso indiscriminado de antibióticos pode interferir negativamente na microbiota intestinal, causando disbiose – um desequilíbrio na diversidade das bactérias benéficas que habitam o intestino. Essa alteração pode ter consequências a curto e longo prazo para a saúde do indivíduo.</p>
+                <p class="mb-4 text-slate-600">É fundamental compreender que os antibióticos são eficazes apenas contra infecções causadas por bactérias específicas e não têm ação contra vírus, fungos ou parasitas. Para esses microrganismos, existem medicamentos específicos, como antivirais, antifúngicos e antiparasitários. A utilização de antibióticos para condições virais, por exemplo, não só é ineficaz, mas também contribui diretamente para a resistência bacteriana.</p>
+                <p class="text-slate-600">Portanto, a responsabilidade individual é primordial. Os antibióticos são medicamentos controlados e só devem ser utilizados sob prescrição médica. É imperativo seguir rigorosamente as indicações do profissional de saúde quanto ao tipo de medicamento, dosagem e duração do tratamento, mesmo que os sintomas desapareçam antes do término. A interrupção do tratamento antes do tempo indicado pode levar à sobrevivência das bactérias mais resistentes, exigindo a retomada do tratamento e contribuindo para a proliferação da resistência. O uso racional dos antibióticos é um compromisso coletivo para garantir que esses medicamentos continuem sendo eficazes para as gerações futuras.</p>
+            </div>
+        </section>
+
+        <section id="comparativo" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Análise Comparativa de Patógenos</h2>
+            <p class="mb-8 text-lg text-slate-600">Para entender a singularidade da Cerebrophaga neurotoxica, é útil compará-la com outras bactérias que causam doenças graves. Selecione um patógeno abaixo para ver um resumo lado a lado, destacando as principais diferenças e semelhanças em transmissão, virulência e tratamento.</p>
+
+            <div class="text-center mb-6">
+                <div class="isolate inline-flex rounded-md shadow-sm">
+                    <button data-bacterium="meningitidis" class="comparison-btn relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">N. meningitidis</button>
+                    <button data-bacterium="pneumoniae" class="comparison-btn relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">S. pneumoniae</button>
+                    <button data-bacterium="monocytogenes" class="comparison-btn relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10">L. monocytogenes</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-blue-700">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">Cerebrophaga neurotoxica (Fictícia)</h3>
+                    <div class="space-y-3">
+                        <p><strong>Transmissão:</strong> <span class="font-semibold text-red-600">Alimentar</span></p>
+                        <p><strong>Virulência Chave:</strong> Neurotoxinas, crescimento em refrigeração</p>
+                        <p><strong>Grupos de Risco:</strong> Grávidas, recém-nascidos, idosos, imunocomprometidos</p>
+                        <p><strong>Tratamento:</strong> Ampicilina + Gentamicina</p>
+                        <p><strong>Resistência Notável:</strong> Ineficaz contra Cefalosporinas</p>
+                    </div>
+                </div>
+                <div id="comparison-target" class="bg-slate-50 p-6 rounded-lg shadow-lg border-t-4 border-slate-400">
+                    <h3 id="comparison-title" class="text-2xl font-bold mb-4 text-slate-600">Selecione um patógeno para comparar</h3>
+                    <div id="comparison-content" class="space-y-3 text-slate-600">
+                        <p><strong>Transmissão:</strong> -</p>
+                        <p><strong>Virulência Chave:</strong> -</p>
+                        <p><strong>Grupos de Risco:</strong> -</p>
+                        <p><strong>Tratamento:</strong> -</p>
+                        <p><strong>Resistência Notável:</strong> -</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="curiosidades" class="content-section">
+            <h2 class="text-3xl font-bold text-slate-800 mb-4">Curiosidades Científicas</h2>
+            <p class="mb-8 text-lg text-slate-600">Nesta seção, exploramos alguns fatos interessantes e menos conhecidos sobre a Cerebrophaga neurotoxica e o fascinante mundo dos microrganismos e da saúde pública.</p>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">Crescimento no Frio: Um Desafio Inesperado</h3>
+                    <p class="text-slate-700">A Cerebrophaga neurotoxica possui uma característica incomum para muitos patógenos alimentares: sua capacidade de se multiplicar ativamente em temperaturas de refrigeração (abaixo de 4°C). Isso significa que a simples guarda de alimentos na geladeira, que normalmente inibiria o crescimento bacteriano, pode não ser suficiente para conter a proliferação desta bactéria. É um lembrete de que a segurança alimentar vai além do óbvio!</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">A Velocidade da Replicação: Uma Corrida Contra o Tempo</h3>
+                    <p class="text-slate-700">Com um tempo de duplicação de apenas 20 minutos em condições ideais, a Cerebrophaga neurotoxica pode se multiplicar exponencialmente em um ritmo alarmante. Isso significa que, em poucas horas, uma única bactéria pode dar origem a milhões de descendentes. Essa velocidade de replicação é um dos fatores que contribui para a rápida progressão da doença e a urgência no diagnóstico e tratamento.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">Biofilmes: Fortalezas Bacterianas</h3>
+                    <p class="text-slate-700">A Cerebrophaga neurotoxica tem a capacidade de formar biofilmes, que são comunidades de bactérias aderidas a superfícies e envoltas em uma matriz protetora. Pense nisso como uma "fortaleza" que as protege do sistema imunológico e de antibióticos. Essa característica torna a erradicação da bactéria de superfícies e, potencialmente, de infecções crônicas, um desafio ainda maior.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">A "Saúde Única": Tudo Conectado</h3>
+                    <p class="text-slate-700">A emergência de patógenos como a Cerebrophaga neurotoxica reforça o conceito de "Saúde Única" (One Health). Essa abordagem reconhece que a saúde de humanos, animais e o meio ambiente estão intrinsecamente ligadas. Um problema em uma área pode impactar as outras, e a solução exige colaboração entre diversas disciplinas e setores. É um lembrete de que não podemos pensar na saúde humana isoladamente.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">O Desafio da Nomenclatura: Um Nome para Cada Espécie</h3>
+                    <p class="text-slate-700">A criação do nome científico Cerebrophaga neurotoxica e da nova família Cerebrophagaceae segue regras rigorosas da nomenclatura biológica. Cada nova espécie descoberta recebe um nome único e universal, permitindo que cientistas de todo o mundo se refiram a ela sem confusão. É um sistema complexo, mas essencial para a comunicação científica global.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h3 class="font-bold text-xl mb-2 text-purple-800">A "Infodemia": O Vírus da Desinformação</h3>
+                    <p class="text-slate-700">Durante crises de saúde, como a que a Cerebrophaga neurotoxica poderia causar, a proliferação de informações falsas ou enganosas – a "infodemia" – é um desafio tão grande quanto o próprio patógeno. Combater a desinformação com fatos e ciência é crucial para que a população tome decisões informadas e para que as medidas de saúde pública sejam eficazes.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-white text-center p-6 mt-12">
+        <p>IFBaiano - Campus Santa Inês</p>
+        <p class="text-sm text-slate-400 mt-2">Jornal Mine</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            const comparisonBtns = document.querySelectorAll('.comparison-btn');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            const comparisonData = {
+                meningitidis: {
+                    title: 'Neisseria meningitidis',
+                    content: `
+                        <p><strong>Transmissão:</strong> <span class="font-semibold text-blue-600">Respiratória (gotículas)</span></p>
+                        <p><strong>Virulência Chave:</strong> Cápsula polissacarídica, Pili</p>
+                        <p><strong>Grupos de Risco:</strong> Crianças e jovens adultos</p>
+                        <p><strong>Tratamento:</strong> Ceftriaxona, Penicilina G</p>
+                        <p><strong>Resistência Notável:</strong> Variável, mas geralmente sensível às drogas de escolha</p>
+                    `
+                },
+                pneumoniae: {
+                    title: 'Streptococcus pneumoniae',
+                    content: `
+                        <p><strong>Transmissão:</strong> <span class="font-semibold text-blue-600">Respiratória (contato direto)</span></p>
+                        <p><strong>Virulência Chave:</strong> Cápsula polissacarídica, Pneumolisina</p>
+                        <p><strong>Grupos de Risco:</strong> Crianças < 5 anos, adultos > 65 anos</p>
+                        <p><strong>Tratamento:</strong> Depende da resistência (muitas cepas resistentes)</p>
+                        <p><strong>Resistência Notável:</strong> Alta resistência à Penicilina em muitas regiões</p>
+                    `
+                },
+                monocytogenes: {
+                    title: 'Listeria monocytogenes',
+                    content: `
+                        <p><strong>Transmissão:</strong> <span class="font-semibold text-red-600">Alimentar</span></p>
+                        <p><strong>Virulência Chave:</strong> Internalinas, crescimento em refrigeração</p>
+                        <p><strong>Grupos de Risco:</strong> Grávidas, recém-nascidos, idosos, imunocomprometidos</p>
+                        <p><strong>Tratamento:</strong> Ampicilina + Gentamicina</p>
+                        <p><strong>Resistência Notável:</strong> Ineficaz contra Cefalosporinas</p>
+                    `
+                }
+            };
+
+            function updateActiveSection() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                const activeSection = document.getElementById(sectionId);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.dataset.section;
+                    showSection(sectionId);
+                    const sectionElement = document.getElementById(sectionId);
+                    if (sectionElement) {
+                       window.scrollTo({
+                           top: sectionElement.offsetTop - 70,
+                           behavior: 'smooth'
+                       });
+                    }
+                });
+            });
+
+            comparisonBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const bacteriumKey = this.dataset.bacterium;
+                    const data = comparisonData[bacteriumKey];
+
+                    document.getElementById('comparison-title').textContent = data.title;
+                    document.getElementById('comparison-content').innerHTML = data.content;
+                    
+                    comparisonBtns.forEach(b => b.classList.remove('bg-blue-100'));
+                    this.classList.add('bg-blue-100');
+                });
+            });
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active', 'text-blue-600', 'border-blue-600'));
+                    tabBtns.forEach(b => b.classList.add('text-slate-500', 'hover:text-slate-700', 'hover:border-slate-300'));
+                    
+                    this.classList.add('active', 'text-blue-600', 'border-blue-600');
+                    this.classList.remove('text-slate-500', 'hover:text-slate-700', 'hover:border-slate-300');
+
+                    tabContents.forEach(content => content.style.display = 'none');
+                    const contentId = this.id.replace('btn-', 'content-');
+                    document.getElementById(contentId).style.display = 'block';
+                });
+            });
+            
+            showSection('ameaca');
+
+            const ctx = document.getElementById('vulnerabilityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mulheres Grávidas', 'Recém-nascidos', 'Idosos (>65 anos)', 'Imunocomprometidos', 'População Geral'],
+                    datasets: [{
+                        label: 'Risco Relativo de Doença Grave',
+                        data: [90, 85, 75, 95, 10],
+                        backgroundColor: [
+                            'rgba(239, 68, 68, 1.1)',
+                            'rgba(249, 115, 22, 1.0)',
+                            'rgba(245, 158, 11, 1.1)',
+                            'rgba(132, 204, 22, 1.5)',
+                            'rgba(59, 130, 246, 1.1)'
+                        ],
+                        borderColor: [
+                            'rgba(239, 68, 68, 1)',
+                            'rgba(249, 115, 22, 1)',
+                            'rgba(245, 158, 11, 1)',
+                            'rgba(132, 204, 22, 1)',
+                            'rgba(59, 130, 246, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` Risco: ${context.raw} (escala relativa)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Nível de Risco Relativo (escala 0-100)'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
